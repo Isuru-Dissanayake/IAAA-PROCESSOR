@@ -1,4 +1,2 @@
-
-simulation
-output_files
-db
+db/
+incremental_db/
