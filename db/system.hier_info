@@ -1,7 +1,7 @@
 |system
 a => a.IN1
 b => b.IN1
-out <= myInverter:Inverter1.out
+out << myInverter:Inverter1.out
 
 
 |system|myAND:AND1
