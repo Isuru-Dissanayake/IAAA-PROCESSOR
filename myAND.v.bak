@@ -1,8 +1,8 @@
 module myAND(
-	input a,
+	input c,
 	input b,
 	output out
 	);
 	
-	assign out = a&b;
+	assign out = c&b;
 endmodule

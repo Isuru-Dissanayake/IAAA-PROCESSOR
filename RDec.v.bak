@@ -1,4 +1,4 @@
-/*module RDec( 
+module RDec( 
 input Clock,
 input [15:0] RG2_out, 
 input [1:0] MUX4S, 
@@ -25,7 +25,7 @@ output RDec_MDDR
 output RDec_TR
 output RDec_AR); 
 
-always @(posedge Clock) 
+always @(posedge clock) 
 	begin 
 	if (MUX4S == 2'd1)
 		begin
@@ -275,7 +275,7 @@ always @(posedge Clock)
 		
 	end	
  
-endmodule*/
+endmodule
 
 
 

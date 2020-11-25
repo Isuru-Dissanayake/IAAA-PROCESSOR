@@ -1,16 +1,23 @@
 module RG1( 
-input [4:0] MIDR_Out[5:8] , 
+input [15:0] MIDR_Out , 
 output reg [4:0] RG1_out); 
  
-RG1_out <= MIDR_Out[4:8];
- 
+always @(MIDR_Out)
+begin
+RG1_out <= MIDR_Out[8:4];
+end
+
 endmodule 
  
  
 module RG2( 
-input [4:0] MIDR_Out[9:12] , 
+input [15:0] MIDR_Out , 
 output reg [4:0] RG1_out); 
  
-RG1_out <= MIDR_Out[9:12];
+always @(MIDR_Out)
+begin
+	RG1_out <= MIDR_Out[12:9];
+end
+
  
 endmodule 

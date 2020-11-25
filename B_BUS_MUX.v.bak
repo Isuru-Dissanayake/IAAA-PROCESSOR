@@ -1,4 +1,4 @@
-/*module B_BUS_MUX( 
+module B_BUS_MUX( 
 input Clock,
 input [15:0] i_out, 
 
@@ -101,4 +101,4 @@ always @(posedge clock)
 	
 	end  
  
-endmodule*/
+endmodule
