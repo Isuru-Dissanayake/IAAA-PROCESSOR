@@ -1,11 +1,12 @@
-/*module RDec( 
+module RDec( 
 input Clock,
-input [15:0] RG2_out, 
+input [4:0] RG2_out, 
 input [1:0] MUX4S, 
 input [4:0] MUX4D_out, 
 
+output reg [18:0] RDec_out
 
-output RDec_R1
+/*output RDec_R1
 output RDec_R2
 output RDec_R3
 output RDec_R4
@@ -23,259 +24,147 @@ output RDec_PC
 output RDec_TOTR
 output RDec_MDDR
 output RDec_TR
-output RDec_AR); 
+output RDec_AR*/
+); 
 
 always @(posedge Clock) 
 	begin 
 	if (MUX4S == 2'd1)
 		begin
-			if RG2_out == 5'd1
-				RDec_R1 <= 1;
-			else
-				RDec_R1 <= 0;
+			if (RG2_out == 5'd1)
+				RDec_out <= 19'b0000000000000000001;
 				
-			if RG2_out == 5'd2
-				RDec_R2 <= 1;
-			else
-				RDec_R2 <= 0;
+			if (RG2_out == 5'd2)
+				RDec_out <= 19'b0000000000000000010;
 				
-			if RG2_out == 5'd3
-				RDec_R3 <= 1;
-			else
-				RDec_R3 <= 0;
+			if (RG2_out == 5'd3)
+				RDec_out <= 19'b0000000000000000100;
 				
-			if RG2_out == 5'd4
-				RDec_R4 <= 1;
-			else
-				RDec_R4 <= 0;
+			if (RG2_out == 5'd4)
+				RDec_out <= 19'b0000000000000001000;
 				
-			if RG2_out == 5'd5
-				RDec_R5 <= 1;
-			else
-				RDec_R5 <= 0;
+			if (RG2_out == 5'd5)
+				RDec_out <= 19'b0000000000000010000;
 				
-			if RG2_out == 5'd6
-				RDec_R6 <= 1;
-			else
-				RDec_R6 <= 0;
+			if (RG2_out == 5'd6)
+				RDec_out <= 19'b0000000000000100000;
 				
-			if RG2_out == 5'd7
-				RDec_R7 <= 1;
-			else
-				RDec_R7 <= 0;
+			if (RG2_out == 5'd7)
+				RDec_out <= 19'b0000000000001000000;
 				
-			if RG2_out == 5'd8
-				RDec_R8 <= 1;
-			else
-				RDec_R8 <= 0;
+			if (RG2_out == 5'd8)
+				RDec_out <= 19'b0000000000010000000;
 				
-			if RG2_out == 5'd9
-				RDec_R9 <= 1;
-			else
-				RDec_R9 <= 0;
+			if (RG2_out == 5'd9)
+				RDec_out <= 19'b0000000000100000000;
 				
-			if RG2_out == 5'd10
-				RDec_R10 <= 1;
-			else
-				RDec_R10 <= 0;
+			if (RG2_out == 5'd10)
+				RDec_out <= 19'b0000000001000000000;
 				
-			if RG2_out == 5'd11
-				RDec_R11 <= 1;
-			else
-				RDec_R11 <= 0;
+			if (RG2_out == 5'd11)
+				RDec_out <= 19'b0000000010000000000;
 				
-			if RG2_out == 5'd12
-				RDec_R12 <= 1;
-			else
-				RDec_R12 <= 0;
+			if (RG2_out == 5'd12)
+				RDec_out <= 19'b0000000100000000000;
 				
-			if RG2_out == 5'd13
-				RDec_R13 <= 1;
-			else
-				RDec_R13 <= 0;
+			if (RG2_out == 5'd13)
+				RDec_out <= 19'b0000001000000000000;
 				
-			if RG2_out == 5'd14
-				RDec_R14 <= 1;
-			else
-				RDec_R14 <= 0;
+			if (RG2_out == 5'd14)
+				RDec_out <= 19'b0000010000000000000;
 				
-			if RG2_out == 5'd15
-				RDec_TOTR <= 1;
-			else
-				RDec_TOTR <= 0;
+			if (RG2_out == 5'd15)
+				RDec_out <= 19'b0000100000000000000;
 				
-			if RG2_out == 5'd16
-				RDec_TR <= 1;
-			else
-				RDec_TR <= 0;
+			if (RG2_out == 5'd16)
+				RDec_out <= 19'b0001000000000000000;
 				
-			if RG2_out == 5'd17
-				RDec_PC <= 1;
-			else
-				RDec_PC <= 0;
+			if (RG2_out == 5'd17)
+				RDec_out <= 19'b0010000000000000000;
 			
-			if RG2_out == 5'd18
-				RDec_AR <= 1;
-			else
-				RDec_AR <= 0;
+			if (RG2_out == 5'd18)
+				RDec_out <= 19'b0100000000000000000;
 				
-			if RG2_out == 5'd19
-				RDec_MDDR <= 1;
-			else
-				RDec_MDDR <= 0;
+			if (RG2_out == 5'd19)
+				RDec_out <= 19'b1000000000000000000;
 				
-			if RG2_out == 5'd31
-				begin
-					RDec_R1 <= 1;
-					RDec_R2 <= 1;
-					RDec_R3 <= 1;
-					RDec_R4 <= 1;
-					RDec_R5 <= 1;
-					RDec_R6 <= 1;
-					RDec_R7 <= 1;
-					RDec_R8 <= 1;
-					RDec_R9 <= 1;
-					RDec_R10 <= 1;
-					RDec_R11 <= 1;
-					RDec_R12 <= 1;
-					RDec_R13 <= 1;
-					RDec_R14 <= 1;
-					RDec_TOTR <= 1;
-					RDec_TR <= 1;
-					RDec_PC <= 1;
-					RDec_AR <= 1;
-					RDec_MDDR <= 1;
-					RDec_IR <= 1;
-				end
+			if (RG2_out == 5'd31)
+				RDec_out <= 19'b1111111111111111111;
+				
 		end 
-			
+	
 		
 	if (MUX4S == 2'd2)
 		begin
-			if MUX4D_out == 5'd1
-				RDec_R1 <= 1;
-			else
-				RDec_R1 <= 0;
+			if (MUX4D_out == 5'd1)
+				RDec_out <= 19'b0000000000000000001;
 				
-			if MUX4D_out == 5'd2
-				RDec_R2 <= 1;
-			else
-				RDec_R2 <= 0;
+			if (MUX4D_out == 5'd2)
+				RDec_out <= 19'b0000000000000000010;
 				
-			if MUX4D_out == 5'd3
-				RDec_R3 <= 1;
-			else
-				RDec_R3 <= 0;
+			if (MUX4D_out == 5'd3)
+				RDec_out <= 19'b0000000000000000100;
 				
-			if MUX4D_out == 5'd4
-				RDec_R4 <= 1;
-			else
-				RDec_R4 <= 0;
+			if (MUX4D_out == 5'd4)
+				RDec_out <= 19'b0000000000000001000;
 				
-			if MUX4D_out == 5'd5
-				RDec_R5 <= 1;
-			else
-				RDec_R5 <= 0;
+			if (MUX4D_out == 5'd5)
+				RDec_out <= 19'b0000000000000010000;
 				
-			if MUX4D_out == 5'd6
-				RDec_R6 <= 1;
-			else
-				RDec_R6 <= 0;
+			if (MUX4D_out == 5'd6)
+				RDec_out <= 19'b0000000000000100000;
 				
-			if MUX4D_out == 5'd7
-				RDec_R7 <= 1;
-			else
-				RDec_R7 <= 0;
+			if (MUX4D_out == 5'd7)
+				RDec_out <= 19'b0000000000001000000;
 				
-			if MUX4D_out == 5'd8
-				RDec_R8 <= 1;
-			else
-				RDec_R8 <= 0;
+			if (MUX4D_out == 5'd8)
+				RDec_out <= 19'b0000000000010000000;
 				
-			if MUX4D_out == 5'd9
-				RDec_R9 <= 1;
-			else
-				RDec_R9 <= 0;
+			if (MUX4D_out == 5'd9)
+				RDec_out <= 19'b0000000000100000000;
 				
-			if MUX4D_out == 5'd10
-				RDec_R10 <= 1;
-			else
-				RDec_R10 <= 0;
+			if (MUX4D_out == 5'd10)
+				RDec_out <= 19'b0000000001000000000;
 				
-			if MUX4D_out == 5'd11
-				RDec_R11 <= 1;
-			else
-				RDec_R11 <= 0;
+			if (MUX4D_out == 5'd11)
+				RDec_out <= 19'b0000000010000000000;
 				
-			if MUX4D_out == 5'd12
-				RDec_R12 <= 1;
-			else
-				RDec_R12 <= 0;
+			if (MUX4D_out == 5'd12)
+				RDec_out <= 19'b0000000100000000000;
 				
-			if MUX4D_out == 5'd13
-				RDec_R13 <= 1;
-			else
-				RDec_R13 <= 0;
+			if (MUX4D_out == 5'd13)
+				RDec_out <= 19'b0000001000000000000;
 				
-			if MUX4D_out == 5'd14
-				RDec_R14 <= 1;
-			else
-				RDec_R14 <= 0;
+			if (MUX4D_out == 5'd14)
+				RDec_out <= 19'b0000010000000000000;
 				
-			if MUX4D_out == 5'd15
-				RDec_TOTR <= 1;
-			else
-				RDec_TOTR <= 0;
+			if (MUX4D_out == 5'd15)
+				RDec_out <= 19'b0000100000000000000;
 				
-			if MUX4D_out == 5'd16
-				RDec_TR <= 1;
-			else
-				RDec_TR <= 0;
+			if (MUX4D_out == 5'd16)
+				RDec_out <= 19'b0001000000000000000;
 				
-			if MUX4D_out == 5'd17
-				RDec_PC <= 1;
-			else
-				RDec_PC <= 0;
+			if (MUX4D_out == 5'd17)
+				RDec_out <= 19'b0010000000000000000;
 			
-			if MUX4D_out == 5'd18
-				RDec_AR <= 1;
-			else
-				RDec_AR <= 0;
+			if (MUX4D_out == 5'd18)
+				RDec_out <= 19'b0100000000000000000;
 				
-			if MUX4D_out == 5'd19
-				RDec_MDDR <= 1;
-			else
-				RDec_MDDR <= 0;
+			if (MUX4D_out == 5'd19)
+				RDec_out <= 19'b1000000000000000000;
 				
-			if MUX4D_out == 5'd31
-				begin
-					RDec_R1 <= 1;
-					RDec_R2 <= 1;
-					RDec_R3 <= 1;
-					RDec_R4 <= 1;
-					RDec_R5 <= 1;
-					RDec_R6 <= 1;
-					RDec_R7 <= 1;
-					RDec_R8 <= 1;
-					RDec_R9 <= 1;
-					RDec_R10 <= 1;
-					RDec_R11 <= 1;
-					RDec_R12 <= 1;
-					RDec_R13 <= 1;
-					RDec_R14 <= 1;
-					RDec_TOTR <= 1;
-					RDec_TR <= 1;
-					RDec_PC <= 1;
-					RDec_AR <= 1;
-					RDec_MDDR <= 1;
-					RDec_IR <= 1;
-				
-				end 
-		end
+			if (MUX4D_out == 5'd31)
+				RDec_out <= 19'b1111111111111111111;
+			
+			
+		end 
 		
-	end	
+		
+	end
+
+	
  
-endmodule*/
+endmodule
 
 
 

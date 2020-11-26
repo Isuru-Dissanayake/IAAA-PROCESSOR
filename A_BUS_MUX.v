@@ -29,130 +29,130 @@ input [4:0] MUX1D_out,
 
 output reg [15:0] A_BUS_out); 
 
-always @(posedge clock) 
+always @(posedge Clock) 
 	begin 
 	if (MUX1S == 2'd1)
 		begin
-			if RG1_out == 5'd1
+			if (RG1_out == 5'd1)
 				A_BUS_out <= R1_out;
-			if RG1_out == 5'd2
+			if (RG1_out == 5'd2)
 				A_BUS_out <= R2_out;
-			if RG1_out == 5'd3
+			if (RG1_out == 5'd3)
 				A_BUS_out <= R3_out;
-			if RG1_out == 5'd4
+			if (RG1_out == 5'd4)
 				A_BUS_out <= R4_out;
-			if RG1_out == 5'd5
+			if (RG1_out == 5'd5)
 				A_BUS_out <= R5_out;
-			if RG1_out == 5'd6
+			if (RG1_out == 5'd6)
 				A_BUS_out <= R6_out;
-			if RG1_out == 5'd7
+			if (RG1_out == 5'd7)
 				A_BUS_out <= R7_out;
-			if RG1_out == 5'd8
+			if (RG1_out == 5'd8)
 				A_BUS_out <= R8_out;
-			if RG1_out == 5'd9
+			if (RG1_out == 5'd9)
 				A_BUS_out <= R9_out;
-			if RG1_out == 5'd10
+			if (RG1_out == 5'd10)
 				A_BUS_out <= R10_out;
-			if RG1_out == 5'd11
+			if (RG1_out == 5'd11)
 				A_BUS_out <= R11_out;
-			if RG1_out == 5'd12
+			if (RG1_out == 5'd12)
 				A_BUS_out <= R12_out;
-			if RG1_out == 5'd13
+			if (RG1_out == 5'd13)
 				A_BUS_out <= R13_out;
-			if RG1_out == 5'd14
+			if (RG1_out == 5'd14)
 				A_BUS_out <= R14_out;
-			if RG1_out == 5'd15
+			if (RG1_out == 5'd15)
 				A_BUS_out <= TOTR_out;
-			if RG1_out == 5'd18
+			if (RG1_out == 5'd18)
 				A_BUS_out <= AR_out;
-			if RG1_out == 5'd19
+			if (RG1_out == 5'd19)
 				A_BUS_out <= MDDR_out;
-			if RG1_out == 5'd20
+			if (RG1_out == 5'd20)
 				A_BUS_out <= AC_out;
-			if RG1_out == 5'd21
+			if (RG1_out == 5'd21)
 				A_BUS_out <= MIDR_out;
 		end 
 		
 	else if (MUX1S == 2'd2)
 		begin
-			if MUX1D_out == 5'd1
+			if (MUX1D_out == 5'd1)
 				A_BUS_out <= R1_out;
-			if MUX1D_out == 5'd2
+			if (MUX1D_out == 5'd2)
 				A_BUS_out <= R2_out;
-			if MUX1D_out == 5'd3
+			if (MUX1D_out == 5'd3)
 				A_BUS_out <= R3_out;
-			if MUX1D_out == 5'd4
+			if (MUX1D_out == 5'd4)
 				A_BUS_out <= R4_out;
-			if MUX1D_out == 5'd5
+			if (MUX1D_out == 5'd5)
 				A_BUS_out <= R5_out;
-			if MUX1D_out == 5'd6
+			if (MUX1D_out == 5'd6)
 				A_BUS_out <= R6_out;
-			if MUX1D_out == 5'd7
+			if (MUX1D_out == 5'd7)
 				A_BUS_out <= R7_out;
-			if MUX1D_out == 5'd8
+			if (MUX1D_out == 5'd8)
 				A_BUS_out <= R8_out;
-			if MUX1D_out == 5'd9
+			if (MUX1D_out == 5'd9)
 				A_BUS_out <= R9_out;
-			if MUX1D_out == 5'd10
+			if (MUX1D_out == 5'd10)
 				A_BUS_out <= R10_out;
-			if MUX1D_out == 5'd11
+			if (MUX1D_out == 5'd11)
 				A_BUS_out <= R11_out;
-			if MUX1D_out == 5'd12
+			if (MUX1D_out == 5'd12)
 				A_BUS_out <= R12_out;
-			if MUX1D_out == 5'd13
+			if (MUX1D_out == 5'd13)
 				A_BUS_out <= R13_out;
-			if MUX1D_out == 5'd14
+			if (MUX1D_out == 5'd14)
 				A_BUS_out <= R14_out;
-			if MUX1D_out == 5'd15
+			if (MUX1D_out == 5'd15)
 				A_BUS_out <= TOTR_out;
-			if MUX1D_out == 5'd18
+			if (MUX1D_out == 5'd18)
 				A_BUS_out <= AR_out;
-			if MUX1D_out == 5'd19
+			if (MUX1D_out == 5'd19)
 				A_BUS_out <= MDDR_out;
-			if MUX1D_out == 5'd20
+			if (MUX1D_out == 5'd20)
 				A_BUS_out <= AC_out;
-			if MUX1D_out == 5'd21
+			if (MUX1D_out == 5'd21)
 				A_BUS_out <= MIDR_out;
 		end 
 	else if (MUX1S == 2'd3)
 		begin
-			if RG2_out == 5'd1
+			if (RG2_out == 5'd1)
 				A_BUS_out <= R1_out;
-			if RG2_out == 5'd2
+			if (RG2_out == 5'd2)
 				A_BUS_out <= R2_out;
-			if RG2_out == 5'd3
+			if (RG2_out == 5'd3)
 				A_BUS_out <= R3_out;
-			if RG2_out == 5'd4
+			if (RG2_out == 5'd4)
 				A_BUS_out <= R4_out;
-			if RG2_out == 5'd5
+			if (RG2_out == 5'd5)
 				A_BUS_out <= R5_out;
-			if RG2_out == 5'd6
+			if (RG2_out == 5'd6)
 				A_BUS_out <= R6_out;
-			if RG2_out == 5'd7
+			if (RG2_out == 5'd7)
 				A_BUS_out <= R7_out;
-			if RG2_out == 5'd8
+			if (RG2_out == 5'd8)
 				A_BUS_out <= R8_out;
-			if RG2_out == 5'd9
+			if (RG2_out == 5'd9)
 				A_BUS_out <= R9_out;
-			if RG2_out == 5'd10
+			if (RG2_out == 5'd10)
 				A_BUS_out <= R10_out;
-			if RG2_out == 5'd11
+			if (RG2_out == 5'd11)
 				A_BUS_out <= R11_out;
-			if RG2_out == 5'd12
+			if (RG2_out == 5'd12)
 				A_BUS_out <= R12_out;
-			if RG2_out == 5'd13
+			if (RG2_out == 5'd13)
 				A_BUS_out <= R13_out;
-			if RG2_out == 5'd14
+			if (RG2_out == 5'd14)
 				A_BUS_out <= R14_out;
-			if RG2_out == 5'd15
+			if (RG2_out == 5'd15)
 				A_BUS_out <= TOTR_out;
-			if RG2_out == 5'd18
+			if (RG2_out == 5'd18)
 				A_BUS_out <= AR_out;
-			if RG2_out == 5'd19
+			if (RG2_out == 5'd19)
 				A_BUS_out <= MDDR_out;
-			if RG2_out == 5'd20
+			if (RG2_out == 5'd20)
 				A_BUS_out <= AC_out;
-			if RG2_out == 5'd21
+			if (RG2_out == 5'd21)
 				A_BUS_out <= MIDR_out;
 		end 
 	
