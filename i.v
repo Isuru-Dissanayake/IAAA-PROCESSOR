@@ -1,7 +1,10 @@
 module i( 
 input [15:0] i,
-output reg [15:0] i_Out); 
+output reg [15:0] i_out); 
 
-assign i_out = i;
+always @(i)
+    begin
+		i_out <= i;
+    end
  
 endmodule 
