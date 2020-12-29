@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition"
 
-// DATE "11/25/2020 21:59:33"
+// DATE "12/23/2020 22:10:07"
 
 // 
 // Device: Altera EP4CE115F29C7 Package FBGA780
@@ -29,18 +29,20 @@
 
 `timescale 1 ps/ 1 ps
 
-module system (
-	a,
-	b,
-	out);
-input 	a;
-input 	b;
-output 	out;
+module system_de2 (
+	SW,
+	LEDR,
+	LEDG);
+input 	[1:0] SW;
+output 	[1:0] LEDR;
+output 	[0:0] LEDG;
 
 // Design Ports Information
-// out	=>  Location: PIN_W2,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// a	=>  Location: PIN_AB2,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// b	=>  Location: PIN_AB1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LEDR[0]	=>  Location: PIN_G19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LEDR[1]	=>  Location: PIN_F19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LEDG[0]	=>  Location: PIN_E21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW[0]	=>  Location: PIN_AB28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW[1]	=>  Location: PIN_AC28,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -54,10 +56,12 @@ assign unknown = 1'bx;
 tri1 devclrn;
 tri1 devpor;
 tri1 devoe;
-wire \out~output_o ;
-wire \a~input_o ;
-wire \b~input_o ;
-wire \AND1|out~combout ;
+wire \LEDR[0]~output_o ;
+wire \LEDR[1]~output_o ;
+wire \LEDG[0]~output_o ;
+wire \SW[0]~input_o ;
+wire \SW[1]~input_o ;
+wire \system1|AND1|out~combout ;
 
 
 hard_block auto_generated_inst(
@@ -65,57 +69,87 @@ hard_block auto_generated_inst(
 	.devclrn(devclrn),
 	.devoe(devoe));
 
-// Location: IOOBUF_X0_Y26_N16
-cycloneive_io_obuf \out~output (
-	.i(\AND1|out~combout ),
+// Location: IOOBUF_X69_Y73_N16
+cycloneive_io_obuf \LEDR[0]~output (
+	.i(\SW[0]~input_o ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\out~output_o ),
+	.o(\LEDR[0]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \out~output .bus_hold = "false";
-defparam \out~output .open_drain_output = "false";
+defparam \LEDR[0]~output .bus_hold = "false";
+defparam \LEDR[0]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y27_N15
-cycloneive_io_ibuf \a~input (
-	.i(a),
-	.ibar(gnd),
-	.o(\a~input_o ));
+// Location: IOOBUF_X94_Y73_N2
+cycloneive_io_obuf \LEDR[1]~output (
+	.i(\SW[1]~input_o ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\LEDR[1]~output_o ),
+	.obar());
 // synopsys translate_off
-defparam \a~input .bus_hold = "false";
-defparam \a~input .simulate_z_as = "z";
+defparam \LEDR[1]~output .bus_hold = "false";
+defparam \LEDR[1]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y27_N22
-cycloneive_io_ibuf \b~input (
-	.i(b),
-	.ibar(gnd),
-	.o(\b~input_o ));
+// Location: IOOBUF_X107_Y73_N9
+cycloneive_io_obuf \LEDG[0]~output (
+	.i(!\system1|AND1|out~combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\LEDG[0]~output_o ),
+	.obar());
 // synopsys translate_off
-defparam \b~input .bus_hold = "false";
-defparam \b~input .simulate_z_as = "z";
+defparam \LEDG[0]~output .bus_hold = "false";
+defparam \LEDG[0]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: LCCOMB_X1_Y27_N24
-cycloneive_lcell_comb \AND1|out (
+// Location: IOIBUF_X115_Y17_N1
+cycloneive_io_ibuf \SW[0]~input (
+	.i(SW[0]),
+	.ibar(gnd),
+	.o(\SW[0]~input_o ));
+// synopsys translate_off
+defparam \SW[0]~input .bus_hold = "false";
+defparam \SW[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y14_N1
+cycloneive_io_ibuf \SW[1]~input (
+	.i(SW[1]),
+	.ibar(gnd),
+	.o(\SW[1]~input_o ));
+// synopsys translate_off
+defparam \SW[1]~input .bus_hold = "false";
+defparam \SW[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X108_Y72_N0
+cycloneive_lcell_comb \system1|AND1|out (
 // Equation(s):
-// \AND1|out~combout  = (\a~input_o  & \b~input_o )
+// \system1|AND1|out~combout  = (\SW[1]~input_o  & \SW[0]~input_o )
 
-	.dataa(\a~input_o ),
+	.dataa(gnd),
 	.datab(gnd),
-	.datac(gnd),
-	.datad(\b~input_o ),
+	.datac(\SW[1]~input_o ),
+	.datad(\SW[0]~input_o ),
 	.cin(gnd),
-	.combout(\AND1|out~combout ),
+	.combout(\system1|AND1|out~combout ),
 	.cout());
 // synopsys translate_off
-defparam \AND1|out .lut_mask = 16'hAA00;
-defparam \AND1|out .sum_lutc_input = "datac";
+defparam \system1|AND1|out .lut_mask = 16'hF000;
+defparam \system1|AND1|out .sum_lutc_input = "datac";
 // synopsys translate_on
 
-assign out = \out~output_o ;
+assign LEDR[0] = \LEDR[0]~output_o ;
+
+assign LEDR[1] = \LEDR[1]~output_o ;
+
+assign LEDG[0] = \LEDG[0]~output_o ;
 
 endmodule
 

@@ -3,6 +3,6 @@ module myInverter(
 	output out
 	);
 	
-	assign out = -a;
+	assign out = ~a;
 	
 endmodule
