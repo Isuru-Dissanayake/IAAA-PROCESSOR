@@ -1,0 +1,13 @@
+module processor(
+	input CLOCK_50
+
+);
+
+wire [15:0] addr1;wire [15:0] addr2;wire [15:0] addr3;wire [15:0] addr4;wire [15:0] addr5;wire [15:0] addr6;wire [15:0] addr7;wire [15:0] addr8;wire [15:0] addr9;wire [15:0] addr10;wire [15:0] addr11;wire [15:0] addr12;wire [15:0] addr13;wire [15:0] addr14;wire [15:0] addr15;wire [15:0] addr16;
+wire [15:0] pc1;wire [15:0] pc2;wire [15:0] pc3;wire [15:0] pc4;wire [15:0] pc5;wire [15:0] pc6;wire [15:0] pc7;wire [15:0] pc8;wire [15:0] pc9;wire [15:0] pc10;wire [15:0] pc11;wire [15:0] pc12;wire [15:0] pc13;wire [15:0] pc14;wire [15:0] pc15;wire [15:0] pc16;
+wire [1:0] memcontrol1;wire [1:0] memcontrol2;wire [1:0] memcontrol3;wire [1:0] memcontrol4;wire [1:0] memcontrol5;wire [1:0] memcontrol6;wire [1:0] memcontrol7;wire [1:0] memcontrol8;wire [1:0] memcontrol9;wire [1:0] memcontrol10;wire [1:0] memcontrol11;wire [1:0] memcontrol12;wire [1:0] memcontrol13;wire [1:0] memcontrol14;wire [1:0] memcontrol15;wire [1:0] memcontrol16;
+wire [15:0] dataout1;wire [15:0] dataout2;wire [15:0] dataout3;wire [15:0] dataout4;wire [15:0] dataout5;wire [15:0] dataout6;wire [15:0] dataout7;wire [15:0] dataout8;wire [15:0] dataout9;wire [15:0] dataout10;wire [15:0] dataout11;wire [15:0] dataout12;wire [15:0] dataout13;wire [15:0] dataout14;wire [15:0] dataout15;wire [15:0] dataout16;
+wire [15:0] instrout1;wire [15:0] instrout2;wire [15:0] instrout3;wire [15:0] instrout4;wire [15:0] instrout5;wire [15:0] instrout6;wire [15:0] instrout7;wire [15:0] instrout8;wire [15:0] instrout9;wire [15:0] instrout10;wire [15:0] instrout11;wire [15:0] instrout12;wire [15:0] instrout13;wire [15:0] instrout14;wire [15:0] instrout15;wire [15:0] instrout16;
+wire [15:0] datain1;wire [15:0] datain2;wire [15:0] datain3;wire [15:0] datain4;wire [15:0] datain5;wire [15:0] datain6;wire [15:0] datain7;wire [15:0] datain8;wire [15:0] datain9;wire [15:0] datain10;wire [15:0] datain11;wire [15:0] datain12;wire [15:0] datain13;wire [15:0] datain14;wire [15:0] datain15;wire [15:0] datain16;
+
+Core core1(.Clock(CLOCK_50),.core_id(16'b0000000000000001),.MDDR_in(dataout1),.MIDR_in(instrout1),.ar_output(addr1),.rpc_output(pc1),.MDDR_out(datain1),.memcontrol(memcontrol1));

@@ -1,13 +1,15 @@
 //`timescale 1ns/1ns
 
-module core (
+module Core (
 input Clock,
 input [15:0] core_id,
-input MDDR,
-input MIDR,
+input [15:0] MDDR_in,
+input [15:0] MIDR_in,
 
-output ar_output,
-output rpc_output);
+output [15:0] ar_output,
+output [15:0] rpc_output,
+output [15:0] MDDR_out,
+output reg [1:0] memcontrol);
 
 wire [15:0] r1_out;
 wire [15:0] r2_out;
@@ -28,6 +30,7 @@ wire [15:0] i_out;
 wire [15:0] totr_out;
 wire [15:0] ar_out;
 wire [15:0] mddr_out;
+//wire [15:0] mddr_out_data;
 wire [15:0] midr_out;
 wire [4:0] rg1_out;
 wire [4:0] rg2_out;
@@ -72,10 +75,10 @@ Register R13(.Clock(Clock), .WRDEC_R(wrdec_out[13]), .RDEC_R(rdec_out[13]), .A_B
 Register R14(.Clock(Clock), .WRDEC_R(wrdec_out[14]), .RDEC_R(rdec_out[14]), .A_BUS_out(abus_out), .R_out(r14_out)); 
 Register TOTR(.Clock(Clock), .WRDEC_R(wrdec_out[15]), .RDEC_R(rdec_out[15]), .A_BUS_out(abus_out), .R_out(totr_out)); 
 TR TR(.Clock(Clock), .WRDec_out(wrdec_out), .RG2_out(rg2_out), .RDEC_TR(rdec_out[16]),.TR_out(tr_out));
-//PC PC(.Clock(Clock), .WRDec_out(wrdec_out[17]), .RDEC_PC(rdec_out[17]),.PC_out(rpc_out));
-AR AR(.Clock(Clock), .WRDec_out(wrdec_out), .RDec_out(rdec_out), .A_BUS_out(abus_out), .AR_out(ar_out)); 
-//MDDR MDDR();
-//MIDR MIDR();
+PC PC(.Clock(Clock),.A_BUS_out(abus_out), .WRDec_out(wrdec_out),.RDec_out(rdec_out),.pcd(pcd),.PC_out(rpc_output));
+AR AR(.Clock(Clock), .WRDec_out(wrdec_out), .RDec_out(rdec_out), .A_BUS_out(abus_out), .AR_out(ar_out),.AR_output(ar_output)); 
+MDDR MDDR(.clock(Clock),.WRDec_out(wrdec_out), .RDec_out(rdec_out), .A_bus(abus_out),.MDDR_in_data(MDDR_in),.MDDR_out_core(mddr_out),.MDDR_out_data(MDDR_out));
+MIDR MIDR(.clock(Clock),.InstrOut(MIDR_in),.MIDR_Out(midr_out));
 IR IR( .Clock(Clock), .WRDec_out(wrdec_out), .MIDR_out(midr_out), .IR_out(ir_out)); 
 ALU ALU(.Clock(Clock), .In_1(abus_out), .In_2(bbus_out), .ALUOp(ALUOp), .ALUOut(ac_out), .Z(Z), .Y(Y));
 i i( .core_id(core_id),.i_out(i_out)); 
@@ -83,7 +86,9 @@ RG1 RG1( .MIDR_Out(midr_out), .RG1_out(rg1_out));
 RG2 RG2( .MIDR_Out(midr_out), .RG2_out(rg2_out));
 WRDec WRDec( .Clock(Clock), .i_out(i_out), .TR_out(tr_out), .RG2_out(rg2_out), .MUX3S(MUX3S), .MUX3D_out(MUX3D), .WRDec_out(wrdec_out));
 RDec RDec(.Clock(Clock),.RG2_out(rg2_out), .MUX4S(MUX4S), .MUX4D_out(MUX4D), .RDec_out(rdec_out));
-A_BUS_MUX A_BUS_MUX( .Clock(Clock),.R1_out(r1_out), .R2_out(r2_out),.R3_out(r3_out),.R4_out(r4_out),.R5_out(r5_out),.R6_out(r6_out),.R7_out(r7_out),.R8_out(r8_out),.R9_out(r9_out),.R10_out(r10_out),.R11_out(r11_out),.R12_out(r12_out),.R13_out(r13_out),.R14_out(r14_out),.TOTR_out(totr_out), .R_out(tr_out), .PC_out(rpc_out), .AR_out(ar_out), .MDDR_out(mddr_out), .AC_out(ac_out), .MIDR_out(midr_out),.RG1_out(rg1_out), .RG2_out(rg2_out), .MUX1S(MUX1S), .MUX1D_out(MUX1D), .A_BUS_out(abus_out)); 
+A_BUS_MUX A_BUS_MUX( .Clock(Clock),.R1_out(r1_out), .R2_out(r2_out),.R3_out(r3_out),.R4_out(r4_out),.R5_out(r5_out),.R6_out(r6_out),.R7_out(r7_out),.R8_out(r8_out),.R9_out(r9_out),.R10_out(r10_out),.R11_out(r11_out),.R12_out(r12_out),.R13_out(r13_out),.R14_out(r14_out),.TOTR_out(totr_out), .AR_out(ar_out), .MDDR_out(mddr_out), .AC_out(ac_out), .MIDR_out(midr_out),.RG1_out(rg1_out), .RG2_out(rg2_out), .MUX1S(MUX1S), .MUX1D_out(MUX1D), .A_BUS_out(abus_out)); 
 B_BUS_MUX B_BUS_MUX( .Clock(Clock),.i_out(i_out), .R1_out(r1_out), .R2_out(r2_out), .R3_out(r3_out), .R4_out(r4_out), .R5_out(r5_out), .R6_out(r6_out), .R7_out(r7_out), .R8_out(r8_out), .R9_out(r9_out), .R10_out(r10_out), .R11_out(r11_out), .R12_out(r12_out), .R13_out(r13_out), .R14_out(r14_out), .TOTR_out(totr_out), .RG2_out(rg2_out), .MUX2S(MUX2S), .MUX2D_out(MUX2D), .B_BUS_out(bbus_out)); 
+
+//assign MDDR_out = mddr_out_data;
 
 endmodule 

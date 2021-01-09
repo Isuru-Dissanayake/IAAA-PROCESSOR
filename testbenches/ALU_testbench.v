@@ -15,13 +15,7 @@ module testbench();
   wire [0:0] Z;
   wire [0:0] Y;
   
-  
-  IR ir(
-    .Clock (clk), 
-    .WRDec_out(WRDec_out), 
-    .MIDR_out(MIDR_out), 
-    .IR_out(IR_out));
-  
+
   ALU alu(
     .Clock(clk),
     .In_1(A_BUS),

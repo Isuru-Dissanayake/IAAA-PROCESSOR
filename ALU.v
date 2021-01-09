@@ -33,7 +33,7 @@ begin
 	ALUOut <= In_1 + In_2;
 
   else if(ALUOp == 4'd2) //ADD1
-	ALUOut <= In_1 + 1;
+	ALUOut <= In_1 + 16'b0000000000000001;//1;
 	
   else if(ALUOp == 4'd3)  // SUB
 	begin
@@ -49,7 +49,7 @@ begin
 	end
 	
   else if(ALUOp == 4'd4) // SUB1
-	ALUOut <= In_1 - 1;
+	ALUOut <= In_1 - 16'b0000000000000001;//1;
   
   else if(ALUOp == 4'd5) //MUL
 	ALUOut <= In_1 * In_2;

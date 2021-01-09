@@ -4,7 +4,8 @@ input Clock,
 input [19:0] WRDec_out,
 input [18:0] RDec_out,
 input [15:0] A_BUS_out, 
-output reg [15:0] AR_out); 
+output reg [15:0] AR_out,
+output reg [15:0] AR_output); 
 
   
   always @(posedge Clock) 
@@ -19,4 +20,8 @@ output reg [15:0] AR_out);
 	
 	end  
  
+ always @ (AR_out)
+ begin
+	AR_output<= AR_out;
+ end
 endmodule
