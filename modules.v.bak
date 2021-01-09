@@ -1,0 +1,13 @@
+module mod1(
+	input clk,
+	output reg[3:0] mod1_out
+	);
+	
+	mod1_out = 4'b0000
+	
+	always @(posedge clk)
+		begin
+		mod1_out <= mod1_out + 1;
+		end
+endmodule
+

@@ -1,15 +1,25 @@
 module system_de2(
-	input [1:0]SW,
-	output [1:0]LEDR,
-	output [0:0]LEDG
+	input CLOCK_50,
+	output final
 	);
 	
-	assign LEDR = SW;
+	wire mod1tomod2;
+	wire mod2tomod3;
 	
-	system system1 (
-		.a (SW[0]),
-		.b (SW[1]),
-		.out (LEDG)
-	);
+	mod1 mymod1(
+		.clk(CLOCK_50),
+		.mod1_out(mod1tomod2)
+		);
+	
+	mod2 mymod2(
+		.clk(CLOCK_50),
+		.mod2_in(mod1tomod2),
+		.mod2_out(mod2tomod3)
+		);
+	mod3 mymod3(
+		.clk(CLOCK_50),
+		.mod3_in(mod2tomod3),
+		.mod3_out(final)
+		);
 	
 endmodule
