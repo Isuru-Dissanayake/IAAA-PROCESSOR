@@ -1,9 +1,8 @@
 module WRDec( 
 input Clock,
 input [15:0] i_out, 
-
-input [15:0] TR_out, 
-input [15:0] RG2_out, 
+input [4:0] TR_out, 
+input [4:0] RG2_out, 
 input [1:0] MUX3S, 
 input [4:0] MUX3D_out, 
 

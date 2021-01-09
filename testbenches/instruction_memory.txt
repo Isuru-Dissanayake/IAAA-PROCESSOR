@@ -1,0 +1,68 @@
+// Code your testbench here
+// or browse Examples
+// Code your testbench here
+// or browse Examples
+`timescale 1ns/1ns
+
+module testbench();
+  reg clk;
+  reg [19:0] WRDec_out;
+  reg [15:0] MIDR_out;
+  wire [3:0] IR_out;
+  
+  reg [15:0] A_BUS;
+  reg [15:0] B_BUS;
+  reg [3:0] ALUOp;
+  wire [15:0] ALUOut;
+  wire [0:0] Z;
+  wire [0:0] Y;
+  
+  reg [15:0] InstrAddr1;
+  reg [1:0] Control1;
+  wire [15:0] InstrOut1;
+  reg [15:0] InstrAddr2;
+  reg [1:0] Control2;
+  wire [15:0] InstrOut2;
+  reg [15:0] InstrAddr3;
+  reg [1:0] Control3;
+  wire [15:0] InstrOut3;
+  
+  
+  instruction_memory instruction_memory(
+    .clock(clk),
+    .Control1(Control1),
+    .InstrAddr1(InstrAddr1),
+    .InstrOut1(InstrOut1),
+    .Control2(Control2),
+    .InstrAddr2(InstrAddr2),
+    .InstrOut2(InstrOut2),
+    .Control3(Control3),
+    .InstrAddr3(InstrAddr3),
+    .InstrOut3(InstrOut3)
+  );
+  
+  
+  always #5 clk= ~clk;
+  
+  initial begin
+    
+    clk=0; 
+    
+    InstrAddr1=16'b0000000000000001;
+    Control1=2'd1;
+    InstrAddr2=16'b0000000000000101;
+    Control2=2'd1;
+    InstrAddr3=16'b0000000000000111;
+    Control3=2'd1;
+    #10 
+    $display("InstrOut1", InstrOut1);
+    $display("InstrOut2", InstrOut2);
+    $display("InstrOut3", InstrOut3);
+        
+    
+    
+ 
+    
+    
+  end
+endmodule
