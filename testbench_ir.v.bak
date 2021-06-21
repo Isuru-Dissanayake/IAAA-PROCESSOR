@@ -1,0 +1,85 @@
+//`timescale 1ns/1ns
+module testbench_ir();
+
+reg Clock;
+wire [3:0] ir_out;
+
+
+processor processor(.CLOCK_50(Clock),.ir_out(ir_out));
+
+
+always #5 Clock= ~Clock;
+
+initial begin
+    Clock=0; 
+    #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");    
+	 
+	 #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	     #10 
+    $display("ir_out=%b", ir_out);
+    $display("----------------");
+	 
+	 end
+	 
+endmodule 

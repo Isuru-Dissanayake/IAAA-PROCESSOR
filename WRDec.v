@@ -31,6 +31,11 @@ output WRDec_IR*/);
 
 always @(posedge Clock) 
 	begin 
+	if (MUX3S == 2'd0)
+		begin
+		WRDec_out <= 20'b00000000000000000000;
+		end
+		
 	if (MUX3S == 2'd2)
 		begin
 			if (RG2_out == 5'd1)

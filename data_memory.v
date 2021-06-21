@@ -75,10 +75,26 @@ output reg [15:0] DataOut15,
 output reg [15:0] DataOut16
 );
 
-reg [15:0] ram[255:0];
+reg [15:0] ram[127:0];
 
 initial begin
-
+ram[0]= 16'd3;
+ram[1]= 16'd2;
+ram[2]= 16'd2;
+ram[3]= 16'd1;
+ram[4]= 16'd7;
+ram[5]= 16'd11;
+ram[6]= 16'd17;
+ram[7]= 16'd1;
+ram[8]= 16'd2;
+ram[9]= 16'd3;
+ram[10]= 16'd4;
+ram[11]= 16'd1;
+ram[12]= 16'd2;
+ram[13]= 16'd3;
+ram[14]= 16'd4;
+ram[15]= 16'd5;
+ram[16]= 16'd6;
 end
 ///program the data memory here
 

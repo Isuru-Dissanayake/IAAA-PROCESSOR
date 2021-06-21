@@ -29,6 +29,11 @@ output RDec_AR*/
 
 always @(posedge Clock) 
 	begin 
+	if (MUX4S == 2'd0)
+		begin
+		RDec_out <= 19'b0000000000000000000;
+		end
+		
 	if (MUX4S == 2'd1)
 		begin
 			if (RG2_out == 5'd1)

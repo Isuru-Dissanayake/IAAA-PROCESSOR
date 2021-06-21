@@ -15,7 +15,7 @@ begin
 		//MDDR_out_core <= A_bus;
 		MDDR_out_data <= A_bus;
 		
-	else if(RDec_out == 20'b0000000000000000001 || RDec_out ==20'b1111111111111111111 )
+	if(RDec_out == 20'b0000000000000000001 || RDec_out ==20'b1111111111111111111 )
 		MDDR_out_data <= 16'b0000000000000000;
 		//MDDR_out_core <= 16'b0000000000000000;
 	

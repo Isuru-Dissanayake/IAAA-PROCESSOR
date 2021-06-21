@@ -87,17 +87,22 @@ for i in range(52):
 f.close() 
 
 f= open(str(n)+'x'+str(l)+'_data.txt',"w+")
-f.write(str(l)+'\n')
-f.write(str(n)+'\n')
-f.write(str(m)+'\n')
-f.write(str(y)+'\n')
-f.write(str(alpha1)+'\n')
-f.write(str(alpha2)+'\n')
-f.write(str(alpha3)+'\n')
+f.write('ram[0]= 16\'d'+str(l)+';\n')
+f.write('ram[1]= 16\'d'+str(n)+';\n')
+f.write('ram[2]= 16\'d'+str(m)+';\n')
+f.write('ram[3]= 16\'d'+str(y)+';\n')
+f.write('ram[4]= 16\'d'+str(alpha1)+';\n')
+f.write('ram[5]= 16\'d'+str(alpha2)+';\n')
+f.write('ram[6]= 16\'d'+str(alpha3)+';\n')
+counter=0
 for i in range(len(A)):
     for j in range(len(A[i])):
-        f.write(str(A[i][j])+'\n')
+        f.write('ram['+str(7+counter)+']= 16\'d'+str(A[i][j])+';\n')
+        counter+=1
+
+counter=0
 for i in range(len(B)):
     for j in range(len(B[i])):
-        f.write(str(B[i][j])+'\n')
+        f.write('ram['+str(7+len(A)*len(A[0])+counter)+']= 16\'d'+str(B[i][j])+';\n')
+        counter+=1
 f.close() 

@@ -30,40 +30,76 @@ begin
 
 
   if(ALUOp == 4'd1)  //ADD
+	begin
 	ALUOut <= In_1 + In_2;
-
+	Z<=1'b0;
+	Y<=1'b0;
+	end
+	
+	
   else if(ALUOp == 4'd2) //ADD1
+	begin
 	ALUOut <= In_1 + 16'b0000000000000001;//1;
+	Z<=1'b0;
+	Y<=1'b0;
+	end
 	
   else if(ALUOp == 4'd3)  // SUB
 	begin
+	
 	if(In_1 == In_2)
       begin
 		Z<=1'b1;
-      	ALUOut <= In_1 - In_2;
+		Y<=1'b0;
+      ALUOut <= In_1 - In_2;
       end
+		
 	else if(In_1 >> In_2)
+	begin
 		Y<=1'b1;
-	else
-		ALUOut <= In_1 - In_2;
+		Z<=1'b0;
 	end
 	
+	else
+	begin
+		ALUOut <= In_1 - In_2;
+		Z<=1'b0;
+		Y<=1'b0;
+	end
+	
+	end
+	
+	
   else if(ALUOp == 4'd4) // SUB1
+	begin
 	ALUOut <= In_1 - 16'b0000000000000001;//1;
+	Z<=1'b0;
+	Y<=1'b0;
+	end
   
   else if(ALUOp == 4'd5) //MUL
+	begin
 	ALUOut <= In_1 * In_2;
-
+	Z<=1'b0;
+	Y<=1'b0;
+	end
   // else if(ALUop == 4d'6) // ROOF
 // 	ALUOut <= 
 
   else if(ALUOp == 4'd7) // FLOOR
+	begin
 	ALUOut <= In_1 / In_2;
-
+	Z<=1'b0;
+	Y<=1'b0;
+	end
 
 
   else if(ALUOp == 4'd8) // MOD
+	begin
 	ALUOut <= In_1 % In_2;
+	Z<=1'b0;
+	Y<=1'b0;
+	end
 
 end
 
