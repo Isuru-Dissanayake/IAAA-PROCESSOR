@@ -7,7 +7,7 @@ module TR(
   
 always @(posedge Clock) 
 	begin 
-      if (WRDec_out == 20'b00001000000000000000) 
+      if (WRDec_out == 20'b00000000000000010000) 
 		TR_out <= RG2_out; 
 		if (RDEC_TR ==1)
 		TR_out <= 5'd0; 

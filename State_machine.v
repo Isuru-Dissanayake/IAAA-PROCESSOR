@@ -159,10 +159,10 @@ begin
 		else if(IR_Out == 4'b1111) // JMPZ - should check the Z value
 			begin
 			
-				if(z==1)             // for the JUMPZ Y1 and so on
+				if(z==0)             // for the JUMPZ Y1 and so on
 					current_reg <= 6'b100110; //3 JMPZ Y operations
 					
-				else if (z==0)
+				else if (z==1)
 					current_reg <= 6'b101001; // 1 JMPZ N operations
 			end
 		#30;

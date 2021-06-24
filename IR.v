@@ -20,7 +20,7 @@ module IR(
 
 always @(posedge Clock) 
 	begin 
-      if (WRDec_out == 20'b10000000000000000000 || WRDec_out == 20'b11111111111111111111) 
+      if (WRDec_out == 20'b00000000000000000001 || WRDec_out == 20'b11111111111111111111) 
         IR_out <= MIDR_out[15:12]; 
 	end  
  
