@@ -78,13 +78,13 @@ output reg [15:0] DataOut16
 reg [15:0] ram[127:0];
 
 initial begin
-ram[0]= 16'd3;
-ram[1]= 16'd2;
-ram[2]= 16'd2;
-ram[3]= 16'd1;
-ram[4]= 16'd7;
-ram[5]= 16'd11;
-ram[6]= 16'd17;
+ram[0]= 16'd3; //l= result cols
+ram[1]= 16'd2; //n= result rows
+ram[2]= 16'd2; //m= 1st matrix cols
+ram[3]= 16'd1; //number of cores used 
+ram[4]= 16'd7;	// alpha1
+ram[5]= 16'd11; // alpha2
+ram[6]= 16'd17; // alpha3 
 ram[7]= 16'd1;
 ram[8]= 16'd2;
 ram[9]= 16'd3;

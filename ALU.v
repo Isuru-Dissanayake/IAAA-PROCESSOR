@@ -54,7 +54,7 @@ begin
       ALUOut <= In_1 - In_2;
       end
 		
-	else if(In_1 >> In_2)
+	else if(In_1 < In_2)
 	begin
 		Y<=1'b1;
 		Z<=1'b0;
@@ -83,9 +83,25 @@ begin
 	Z<=1'b0;
 	Y<=1'b0;
 	end
-  // else if(ALUop == 4d'6) // ROOF
-// 	ALUOut <= 
 
+	else if(ALUOp == 4'd6) // ROOF
+	begin 
+		if (In_1 % In_2 != 0)
+		begin
+			ALUOut <= In_1 / In_2 + 16'b0000000000000001;
+			Z<=1'b0;
+			Y<=1'b0;
+		end
+		
+		else
+		begin
+			ALUOut <= In_1 / In_2;
+			Z<=1'b0;
+			Y<=1'b0;
+		end
+	end
+	
+	
   else if(ALUOp == 4'd7) // FLOOR
 	begin
 	ALUOut <= In_1 / In_2;

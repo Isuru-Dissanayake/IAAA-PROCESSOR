@@ -15,26 +15,26 @@ wire [15:0] addr1;
 //wire [15:0] MDDR_out;
 //wire [1:0] memcontrol;
 wire [3:0] ir_out;
-//wire [15:0] r1_out;
-//wire [15:0] r2_out;
-//wire [15:0] r3_out;
-//wire [15:0] r4_out;
-//wire [15:0] r5_out;
-//wire [15:0] r6_out;
-//wire [15:0] r7_out;
-//wire [15:0] r8_out;
-//wire [15:0] r9_out;
-//wire [15:0] r10_out;
-//wire [15:0] r11_out;
-//wire [15:0] r12_out;
-//wire [15:0] r13_out;
-//wire [15:0] r14_out;
-wire [15:0] rpc_out;
+wire [15:0] r1_out;
+wire [15:0] r2_out;
+wire [15:0] r3_out;
+wire [15:0] r4_out;
+wire [15:0] r5_out;
+wire [15:0] r6_out;
+wire [15:0] r7_out;
+wire [15:0] r8_out;
+wire [15:0] r9_out;
+wire [15:0] r10_out;
+wire [15:0] r11_out;
+wire [15:0] r12_out;
+wire [15:0] r13_out;
+wire [15:0] r14_out;
+//wire [15:0] rpc_out;
 wire [15:0] i_out;
 wire [15:0] totr_out;
-wire [15:0] ar_out;
-wire [15:0] mddr_out;
-wire [15:0] midr_out;
+//wire [15:0] ar_out;
+//wire [15:0] mddr_out;
+//wire [15:0] midr_out;
 wire [4:0] rg1_out;
 wire [4:0] rg2_out;
 wire [4:0] tr_out;	
@@ -46,14 +46,14 @@ wire [15:0] ac_out;
 
 	//control signals from the state machine
 wire [3:0] ALUOp;
-wire [1:0] MUX1S;
-wire [4:0] MUX1D;
-wire [1:0] MUX2S;
-wire [4:0] MUX2D;
-wire [1:0] MUX3S;
-wire [4:0] MUX3D;
-wire [1:0] MUX4S;
-wire [4:0] MUX4D;
+//wire [1:0] MUX1S;
+//wire [4:0] MUX1D;
+//wire [1:0] MUX2S;
+//wire [4:0] MUX2D;
+//wire [1:0] MUX3S;
+//wire [4:0] MUX3D;
+//wire [1:0] MUX4S;
+//wire [4:0] MUX4D;
 wire pcd;
 
 wire [5:0] current_reg;
@@ -73,26 +73,26 @@ processor processor(.CLOCK_50(Clock),.datain1(datain1),.dataout1(dataout1),
 //.MDDR_out(MDDR_out),
 //.memcontrol(memcontrol),
 .ir_out(ir_out),
-//.r1_out(r1_out),
-//.r2_out(r2_out),
-//.r3_out(r3_out),
-//.r4_out(r4_out),
-//.r5_out(r5_out),
-//.r6_out(r6_out),
-//.r7_out(r7_out),
-//.r8_out(r8_out),
-//.r9_out(r9_out),
-//.r10_out(r10_out),
-//.r11_out(r11_out),
-//.r12_out(r12_out),
-//.r13_out(r13_out),
-//.r14_out(r14_out),
+.r1_out(r1_out),
+.r2_out(r2_out),
+.r3_out(r3_out),
+.r4_out(r4_out),
+.r5_out(r5_out),
+.r6_out(r6_out),
+.r7_out(r7_out),
+.r8_out(r8_out),
+.r9_out(r9_out),
+.r10_out(r10_out),
+.r11_out(r11_out),
+.r12_out(r12_out),
+.r13_out(r13_out),
+.r14_out(r14_out),
 //.rpc_out(rpc_out),
 .i_out(i_out),
 .totr_out(totr_out),
-.ar_out(ar_out),
-.mddr_out(mddr_out),
-.midr_out(midr_out),
+//.ar_out(ar_out),
+//.mddr_out(mddr_out),
+//.midr_out(midr_out),
 .rg1_out(rg1_out),
 .rg2_out(rg2_out),
 .tr_out(tr_out),	
@@ -103,14 +103,14 @@ processor processor(.CLOCK_50(Clock),.datain1(datain1),.dataout1(dataout1),
 .ac_out(ac_out),
 //control signals from the state machine
 .ALUOp(ALUOp),
-.MUX1S(MUX1S),
-.MUX1D(MUX1D),
-.MUX2S(MUX2S),
-.MUX2D(MUX2D),
-.MUX3S(MUX3S),
-.MUX3D(MUX3D),
-.MUX4S(MUX4S),
-.MUX4D(MUX4D),
+//.MUX1S(MUX1S),
+//.MUX1D(MUX1D),
+//.MUX2S(MUX2S),
+//.MUX2D(MUX2D),
+//.MUX3S(MUX3S),
+//.MUX3D(MUX3D),
+//.MUX4S(MUX4S),
+//.MUX4D(MUX4D),
 .pcd(pcd),
 //additional data paths
 .Z(Z),
