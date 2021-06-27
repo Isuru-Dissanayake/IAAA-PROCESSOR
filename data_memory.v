@@ -81,7 +81,7 @@ initial begin
 ram[0]= 16'd3; //l= result cols
 ram[1]= 16'd2; //n= result rows
 ram[2]= 16'd2; //m= 1st matrix cols
-ram[3]= 16'd1; //number of cores used 
+ram[3]= 16'd2; //number of cores used 
 ram[4]= 16'd7;	// alpha1
 ram[5]= 16'd11; // alpha2
 ram[6]= 16'd17; // alpha3 
